@@ -1,0 +1,60 @@
+pipeline {
+    agent { label 'android-checker' }
+
+    environment {
+        CREDENTIAL_DANGER_TOKEN = 'automation_checker_token'
+        PATH = '/usr/local/bin:/usr/bin:/bin:/home/bukalapak/.rbenv/shims:/home/bukalapak/.rbenv/bin'
+    }
+
+    stages {
+        stage('Job Checker') {
+            steps {
+                cancelPreviousJob()
+            }
+        }
+        stage('Danger Checker') {
+            steps {
+                script{
+                    withCredentials([string(credentialsId: CREDENTIAL_DANGER_TOKEN, variable: 'TOKEN')]) {
+                        sh 'env DANGER_GITHUB_API_TOKEN=$TOKEN ./Danger'
+                    }
+                }
+            }
+        }
+        stage('Static Code Analyser') {
+            steps {
+                echo 'Checking ...'
+                sh './gradlew clean check -x test'
+            }
+            post {
+                always {
+                    publishHTML(target: [
+                            allowMissing         : false,
+                            alwaysLinkToLastBuild: false,
+                            keepAll              : true,
+                            reportDir            : 'build/reports/',
+                            reportFiles          : '**/test.html',
+                            reportName           : "Code Static Analyser"
+                    ])
+                }
+            }
+        }
+    }
+}
+
+def cancelPreviousJob() {
+    def jobname = env.JOB_NAME
+    def buildnum = env.BUILD_NUMBER.toInteger()
+
+    def job = Jenkins.instance.getItemByFullName(jobname)
+    for (build in job.builds) {
+        if (!build.isBuilding()) {
+            continue;
+        }
+        if (buildnum == build.getNumber().toInteger()) {
+            continue; println "equals"
+        }
+        build.doStop();
+    }
+}
+

@@ -1,0 +1,173 @@
+import groovyx.gpars.GParsPool
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath 'org.codehaus.gpars:gpars:1.2.1'
+        classpath 'com.novoda:gradle-static-analysis-plugin:1.2'
+        classpath 'com.adarshr:gradle-test-logger-plugin:1.6.0'
+        classpath 'com.github.spacialcircumstances:gradle-cucumber-reporting:0.1.21'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.novoda.static-analysis'
+apply plugin: 'com.adarshr.test-logger'
+apply plugin: 'com.github.spacialcircumstances.gradle-cucumber-reporting'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'io.cucumber:cucumber-java8:4.7.1'
+    testImplementation 'io.cucumber:cucumber-junit:4.7.1'
+    testImplementation 'io.github.cdimascio:java-dotenv:5.1.1'
+    testImplementation 'com.testdroid:testdroid-api:2.28'
+    testImplementation 'com.google.http-client:google-http-client:1.22.0'
+    testImplementation 'com.google.http-client:google-http-client-jackson2:1.22.0'
+    testImplementation 'org.graalvm.js:js-scriptengine:21.2.0'
+    testImplementation 'org.graalvm.js:js:21.2.0'
+    testImplementation 'org.codehaus.groovy:groovy:2.4.15'
+}
+
+cucumberReports {
+    def collection = getCollectionFiles('target/json-report/')
+    outputDir = file('./target/')
+    reports = collection
+}
+
+staticAnalysis {
+    penalty {
+        maxErrors = 0
+        maxWarnings = 0
+    }
+    pmd {
+        toolVersion '6.26.0'
+        incrementalAnalysis = true
+        ruleSetFiles = project.files("checker/pmd-rules.xml")
+        ruleSets = []
+        rulePriority = 3
+    }
+    findbugs {
+        exclude 'build/'
+        exclude project.file('src/test/java/bukalapak/TestInstrument.java')
+    }
+}
+
+testlogger {
+    theme 'mocha'
+    showExceptions true
+}
+
+test {
+    systemProperties = System.properties
+    testLogging.showStandardStreams = true
+}
+
+tasks {
+    clean {
+        delete "${rootDir}/build"
+        delete "${rootDir}/out"
+        delete "${rootDir}/logs"
+        delete "${rootDir}/target"
+        delete "${rootDir}/rerun"
+        delete "${rootDir}/appium.log"
+        delete "${rootDir}/screenshots_failed"
+    }
+}
+
+task runInDistributed(dependsOn: testClasses) {
+    doLast {
+        distributeMode()
+    }
+}
+
+def distributeMode() {
+    def resourceDirectory = 'src/test/resources/features'
+    def featurePathDir = "${System.properties['featurePathDir']}"
+    def features = fileTree(dir: "${project.projectDir}/${resourceDirectory}/${featurePathDir}").include '**/*.feature'
+
+    GParsPool.withPool(2) {
+        features.eachParallel { File file ->
+            String featurePath = file.getPath()
+            String featureFile = featurePath.replace("${project.projectDir}/${resourceDirectory}", "")
+
+            javaexec {
+                main = "cucumber.api.cli.Main"
+                classpath = configurations.testRuntimeClasspath + sourceSets.main.output + sourceSets.test.output
+                args = ['--tags', "${System.properties['tags']}",
+                        '--plugin', 'pretty',
+                        '--plugin', "json:target/json-report/cucumber-json-${file.name}-report.json",
+                        '--plugin', "rerun:rerun/${file.name}-failed_scenarios.txt",
+                        '--glue', 'classpath:com/bukalapak/ios/stepdefinitions/',
+                        '--glue', 'classpath:com/bukalapak/ios/', "${resourceDirectory}/${featureFile}"
+                ]
+                systemProperties = System.getProperties()
+            }
+        }
+    }
+}
+
+def getCollectionFiles(dir) {
+    File srcDir
+    def collection = files { srcDir.listFiles() }
+    srcDir = file(dir)
+    return collection
+}
+
+def generateRerunTxtOnParallelMode() {
+    def collection = getCollectionFiles('rerun')
+    File error = new File('rerun/failed_scenarios.txt')
+
+    collection.each { File file ->
+        error << file.text
+    }
+}
+
+task rerunCucumber(dependsOn: testClasses) {
+    doLast {
+        System.out.println("COLLECTION : "+getCollectionFiles('rerun').size())
+        if (getCollectionFiles('rerun').size() > 1) { generateRerunTxtOnParallelMode() }
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.testRuntimeClasspath + sourceSets.main.output + sourceSets.test.output
+            args = ["@rerun/failed_scenarios.txt",
+                    '--plugin', 'pretty',
+                    '--plugin', 'json:target/json-report/cucumber-json-report.json',
+                    '--plugin', "rerun:rerun/failed_scenarios.txt",
+                    '--plugin', 'junit:target/report/junit/junit.xml',
+                    '--glue', 'classpath:com/bukalapak/ios/stepdefinitions/',
+                    '--glue', 'classpath:com/bukalapak/ios/'
+            ]
+            systemProperties = System.getProperties()
+        }
+    }
+}
+
+task checkAppium {
+    doLast {
+        def capability = "${System.properties['capability']}"
+        def kill = "killall node"
+        System.out.println(capability)
+        if ("null" == capability) {
+            System.out.println('Killing Appium ...')
+            kill.execute()
+        }else {
+            System.out.println('No local appium run!')
+        }
+    }
+}
+
+//test.finalizedBy(checkAppium)
+runInDistributed.finalizedBy generateCucumberReports

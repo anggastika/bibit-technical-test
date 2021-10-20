@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem 'danger-gitlab'
+gem 'danger-welcome_message'
+gem 'danger-review_requests'
+gem 'core-danger', git: 'git@git.gitlab.cloud.bukalapak.io:bukalapak/core-te/danger.git', tag: 'latest'

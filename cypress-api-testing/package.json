@@ -1,0 +1,37 @@
+{
+  "name": "cypress-api-testing",
+  "version": "1.0.0",
+  "description": "Teste de api utilizando Cypress + Joi",
+  "main": "index.js",
+  "scripts": {
+    "cypress:report": "npx mochawesome-merge ./mochawesome-report/json/mochawesome*.json  > mochawesome-report/report.json && npx marge mochawesome-report/report.json --autoOpen --showPending=false",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run-e2e": "cypress run --env --grep=@e2e",
+    "cypress:run-acceptance": "cypress run --env --grep=@acceptance",
+    "cypress:run-healthcheck": "cypress run --env --grep=@healthcheck",
+    "cypress:run-contract": "cypress run --env --grep=@contract",
+    "cypress:clean-report": "rm -rf mochawesome-report"
+  },
+  "keywords": [],
+  "author": "Maximiliano Alves da Cruz",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@hapi/joi": "^17.1.1",
+    "cypress": "^4.12.1",
+    "cypress-select-tests": "^1.5.4",
+    "mocha": "^7.2.0",
+    "mochawesome": "^6.3.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximilianoalves/cypress-api-testing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maximilianoalves/cypress-api-testing/issues"
+  },
+  "homepage": "https://github.com/maximilianoalves/cypress-api-testing#readme"
+}

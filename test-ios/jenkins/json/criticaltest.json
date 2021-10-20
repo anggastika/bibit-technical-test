@@ -1,0 +1,79 @@
+{
+  "VP-CRITICAL_JOB": {
+    "tribe": "vp",
+    "xrayTag": "TRV-8637",
+    "cucumberTag": "@TRV-8637",
+    "chatId": "ayu.musfita",
+    "deviceOsVersion": "12.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone X",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "CRITICAL_JOB": {
+    "tribe": "core-te",
+    "xrayTag": "TECORE-635",
+    "cucumberTag": "@TECORE-635",
+    "chatId": "genta.wibowo",
+    "deviceOsVersion": "14.5",
+    "profile": "simulator",
+    "config" : {
+      "genymotionName": "CRITICAL iPhone 11 Pro"
+    },
+    "node": "ios-builder-1"
+  },
+  "VP-POSTPAID-SOCIETY_JOB": {
+    "tribe": "vp",
+    "xrayTag": "POST-7364",
+    "cucumberTag": "@POST-7364",
+    "chatId": "sherliana.selvia",
+    "deviceOsVersion": "13.1",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "VP_Postpaid_13",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "VP-PREPAID_JOB": {
+    "tribe": "vp",
+    "xrayTag": "PRETTY-7735",
+    "cucumberTag": "@PRETTY-7735",
+    "chatId": "tetuko.lugas",
+    "deviceOsVersion": "14.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "Prepaid_14.5",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-new-master"
+  },
+  "VP-ENTERTAINMENT-TRAVEL_JOB": {
+    "tribe": "vp",
+    "xrayTag": "TRV-8649",
+    "cucumberTag": "@TRV-8649",
+    "chatId": "aditya.prakarsa aditya.pradana",
+    "deviceOsVersion": "13.1",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "VP_TIX_iPhone_8_Plus",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "VP-INSURANCE_JOB": {
+    "tribe": "vp",
+    "xrayTag": "INS-3737",
+    "cucumberTag": "@INS-3737",
+    "chatId": "fixco.amrizal gita.meditha",
+    "deviceOsVersion": "13.1",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "Vp_Insurance_iPhone_8_Plus",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  }
+}

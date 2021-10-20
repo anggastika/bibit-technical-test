@@ -1,0 +1,444 @@
+{
+  "CORE_JOB" : {
+    "tribe": "corete",
+    "xrayTag" : "TECORE-635",
+    "cucumberTag" : "@TECORE-635",
+    "chatId" : "buddy.arifin niken.paramita rizki.noordian",
+    "deviceOsVersion" : "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "CORE iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "ios-builder-2"
+  },
+  "DANA_JOB": {
+    "tribe": "payment",
+    "xrayTag": "DANA-6725",
+    "cucumberTag": "@DANA-6725",
+    "chatId": "asep.kurnia",
+    "deviceOsVersion": "13.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "bandung-reborn"
+  },
+  "PMS_JOB": {
+    "tribe": "revenue",
+    "xrayTag": "PACMAN-2189",
+    "cucumberTag": "@PACMAN-2189 and @automated and @regression",
+    "chatId": "tri.anugrah",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "PMS iPhone 11 Pro Max 14",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "raven-master"
+  },
+  "INVESTMENT_JOB": {
+    "tribe": "investment-solution",
+    "xrayTag": "FINTECH-9620",
+    "cucumberTag": "@FINTECH-9620",
+    "chatId": "faiq.raihan",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "INVESTMENT_cloud_iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "investment-master"
+  },
+  "PROM_JOB": {
+    "tribe": "revenue",
+    "xrayTag": "PROM-8101",
+    "cucumberTag": "@prom and @automated and @regression",
+    "chatId": "surya.thiono",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "PROM iPhone 11 14",
+      "autoAcceptAlerts": "false"
+    },
+    "node": "raven-master"
+  },
+  "ENCOURAGEMENT_JOB": {
+    "tribe": "shopex",
+    "xrayTag": "RAGE-3402",
+    "cucumberTag": "@RAGE-3402",
+    "chatId": "rizha.amanda",
+    "deviceOsVersion": "13.3",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "ENCOURAGEMENT_cloud_iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "shopex-master"
+  },
+  "DISCOVERY_JOB": {
+    "tribe": "shopex",
+    "xrayTag": "MARS-3731",
+    "cucumberTag": "@MARS-3731",
+    "chatId": "ulva.helena",
+    "deviceOsVersion": "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "DISCOVERY_cloud_iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "ios-builder-3"
+  },
+  "SEARCH_JOB": {
+    "tribe": "shopex",
+    "xrayTag": "SEARCH-3528",
+    "cucumberTag": "@SEARCH-3528",
+    "chatId": "rizki.noordian",
+    "deviceOsVersion": "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "SEARCH_iOS_13 iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "shopex-master"
+  },
+  "VP-PREPAID_JOB": {
+    "tribe": "vp",
+    "xrayTag": "PQ-1277",
+    "cucumberTag": "@PQ-1277",
+    "chatId": "tetuko.lugas",
+    "deviceOsVersion": "11.4",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 8 Plus",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "FINANCING_JOB": {
+    "tribe": "financing",
+    "xrayTag": "FNC-4301",
+    "cucumberTag": "@FNC-4301",
+    "chatId": "prisma.arya",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 11 Pro",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "investment-master"
+  },
+  "GAMES_JOB": {
+    "tribe": "ncog",
+    "xrayTag": "GROQ-5634",
+    "cucumberTag": "@GROQ-5634",
+    "chatId": "hendrawan.ariyono",
+    "deviceOsVersion": "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "GAMES_iPhone 11 Pro",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "gro-master"
+  },
+  "PNL_JOB": {
+    "tribe": "payment",
+    "xrayTag": "PNL-8205",
+    "cucumberTag": "@PNL-8205",
+    "chatId": "tusiarti.handayani",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "investment-master"
+  },
+  "VP-POSTPAID-SOCIETY_JOB": {
+    "tribe": "vp",
+    "xrayTag": "VQ-2988",
+    "cucumberTag": "VQ-2988",
+    "chatId": "aditya.pradana",
+    "deviceOsVersion": "12.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone X",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "CORE-US_JOB": {
+    "tribe": "core",
+    "xrayTag": "US-2583",
+    "cucumberTag": "US-2583",
+    "chatId": "Prasetyo.Nugroho",
+    "deviceOsVersion": "13.3",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "shopex-master"
+  },
+  "VP-ENTERTAINMENT-TRAVEL_JOB": {
+    "tribe": "vp",
+    "xrayTag": "TRV-6641",
+    "cucumberTag": "@TRV-6641",
+    "chatId": "ayu.musfita",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "VP-TIX_cloud_iPhone 7",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "CSI_JOB": {
+    "tribe": "csm",
+    "xrayTag": "TRXS-6068",
+    "cucumberTag": "@TRXS-6068",
+    "chatId": "naufal.hilmi",
+    "deviceOsVersion": "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "CSI_iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "ios-builder-3"
+  },
+  "VP-INSURANCE_JOB": {
+    "tribe": "vp",
+    "xrayTag": "INS-3737",
+    "cucumberTag": "@INS-3737",
+    "chatId": "ayu.musfita",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "VP-INS_cloud_iPhone 7",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "vp-master"
+  },
+  "FUNNEL_JOB": {
+    "tribe": "ncog",
+    "xrayTag": "GROQ-4527",
+    "cucumberTag": "@GROQ-4527",
+    "chatId": "sugeng.priyokusumo",
+    "deviceOsVersion": "13.3",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "Funnel iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "gro-master"
+  },
+  "LSF_JOB": {
+    "tribe": "ncog",
+    "xrayTag": "LSF-20",
+    "cucumberTag": "@LSF-20",
+    "chatId": "ramdhan.pragustian",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "LSF iPhone 11",
+      "autoAcceptAlerts": "false"
+    },
+    "node": "gro-master"
+  },
+  "NCA_JOB": {
+    "tribe": "ncog",
+    "xrayTag": "NCA-5242",
+    "cucumberTag": "@NCA-5242",
+    "chatId": "febrina.darmarisa",
+    "deviceOsVersion": "13.6",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "NCA iPhone 11",
+      "autoAcceptAlerts": "false"
+    },
+    "node": "bandung-reborn"
+  },
+  "MARTECH_JOB": {
+    "tribe": "gro",
+    "xrayTag": "GMT-2900",
+    "cucumberTag": "@GMT-2900",
+    "chatId": "mochamad.tryyulyanto",
+    "deviceOsVersion": "13.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "MARTECH iPhone 11",
+      "autoAcceptAlerts": "false"
+    },
+    "node": "bandung-reborn"
+  },
+  "CORE-LOGISTIC_JOB": {
+    "tribe": "logistic",
+    "xrayTag": "XPRES-6573",
+    "cucumberTag": "@XPRES-6573",
+    "chatId": "faida.royani",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "CORE_LOG_iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "merchant-master"
+  },
+  "LOGINV_JOB": {
+    "tribe": "logistic",
+    "xrayTag": "BEE-6472",
+    "cucumberTag": "@BEE-6472",
+    "chatId": "neng.ajeng",
+    "deviceOsVersion": "13.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "CORE_LOG_iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "merchant-master"
+  },
+  "SUBSIDIES_JOB": {
+    "tribe": "gro",
+    "xrayTag": "SUBS-2281",
+    "cucumberTag": "@SUBS-2281",
+    "chatId": "emile.francois",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "Subsidies iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "mac-stadium-56"
+  },
+  "MITRA_JOB" : {
+    "tribe": "o2o",
+    "xrayTag" : "MTR-3907",
+    "cucumberTag" : "@automated and @regression and @include",
+    "chatId" : "nadia.alifah redita.liskiyari risha.raditya",
+    "deviceOsVersion" : "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "MITRA_cloud_iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "ios-builder-4"
+  },
+  "COREAPPS-FRAMEWORK_JOB": {
+    "tribe": "core",
+    "xrayTag": "COR-3560",
+    "cucumberTag": "@COR-3560",
+    "chatId": "lugas.akta",
+    "deviceOsVersion": "13.2",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "CoreAppsFramework_cloud_iPhone XS Max",
+      "autoAcceptAlerts": "false"
+    },
+    "node": "raven-master"
+  },
+  "PNR_JOB" : {
+    "tribe": "shopex",
+    "xrayTag" : "PNR-8908",
+    "cucumberTag" : "@PNR-8908",
+    "chatId" : "olvi.lora",
+    "deviceOsVersion" : "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "PNR_iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "ios-builder-3"
+  },
+  "MTX_JOB" : {
+    "tribe": "shopex",
+    "xrayTag" : "BTP-9088",
+    "cucumberTag" : "@BTP-9088",
+    "chatId" : "rico.setiadi",
+    "deviceOsVersion" : "13.3",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "MTX_IOS_13",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "shopex-master"
+  },
+  "MTQ_JOB": {
+    "tribe": "merchant",
+    "xrayTag": "MTQ-2120",
+    "cucumberTag": "@MTQ-2120",
+    "chatId": "aranda.rizki",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "merchant-master"
+  },
+  "MX_JOB": {
+    "tribe": "merchant",
+    "xrayTag": "SG-7929",
+    "cucumberTag": "@SG-7929",
+    "chatId": "fadly.mahendra",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "merchant-master"
+  },
+  "MOP_JOB": {
+    "tribe": "merchant",
+    "xrayTag": "SCT-7948",
+    "cucumberTag": "@SCT-7948",
+    "chatId": "fadly.mahendra",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 11",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "merchant-master"
+  },
+  "MEN_JOB": {
+    "tribe": "gro",
+    "xrayTag": "GROQ-5835",
+    "cucumberTag": "@GROQ-5835",
+    "chatId": "dian.prasetyo",
+    "deviceOsVersion": "14.0",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "MEN iPhone 11 Pro Max",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "gro-master"
+  },
+  "CORE-COMM_JOB": {
+    "tribe": "core",
+    "xrayTag": "CORECOM-3089",
+    "cucumberTag": "@CORECOM-3089",
+    "chatId": "ridwan.etlanda",
+    "deviceOsVersion": "13.3",
+    "profile": "simulator",
+    "config": {
+      "simulatorName": "iPhone 8",
+      "autoAcceptAlerts": "true"
+    },
+    "node": "shopex-master"
+  },
+  "WEBX_JOB" : {
+    "tribe": "shopex",
+    "xrayTag" : "WEBX-4892",
+    "cucumberTag" : "@WEBX-4892",
+    "chatId" : "grace.yanni",
+    "deviceOsVersion" : "13.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "WEBX_IOS_13",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "shopex-master"
+  }
+}

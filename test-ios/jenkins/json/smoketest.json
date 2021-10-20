@@ -1,0 +1,15 @@
+{
+  "SMOKETEST_JOB" : {
+    "tribe": "corete",
+    "xrayTag" : "TECORE-635",
+    "cucumberTag" : "@TECORE-635",
+    "chatId" : "dora.debora",
+    "deviceOsVersion" : "14.5",
+    "profile": "simulator",
+    "config": {
+      "simulatorName" : "SMOKETEST iPhone 11 Pro",
+      "autoAcceptAlerts": "true"
+    },
+    "node" : "ios-builder-4"
+  }
+}

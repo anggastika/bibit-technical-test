@@ -1,0 +1,221 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Go to profile page",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2681097224,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user go to homepage stockbit",
+            "match": {
+              "location": "BaseSteps.hompage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 289049345,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user click entry point login",
+            "match": {
+              "location": "LoginSteps.entryPointLogin()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1614422663,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user input username \"USERNAME\" and password \"PASSWORD\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "USERNAME",
+                  "offset": 21
+                },
+                {
+                  "val": "PASSWORD",
+                  "offset": 45
+                }
+              ],
+              "location": "LoginSteps.fieldUsernameAndPassword(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 187314923,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user click button login",
+            "match": {
+              "location": "LoginSteps.loginButton()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 7550448074,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user skip popup avatar",
+            "match": {
+              "location": "LoginSteps.skipPopUpAvatar()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1000192466,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user click profile",
+            "match": {
+              "location": "LoginSteps.goToProfile()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2358251,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user check username \"USERNAME\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "USERNAME",
+                  "offset": 21
+                }
+              ],
+              "location": "LoginSteps.validateUser(String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "Failed login to stockbit",
+        "description": "",
+        "id": "edit-profile-account;failed-login-to-stockbit",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 144926859,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user click entry point edit profile",
+            "match": {
+              "location": "EditProfileSteps.entryPointProfile()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 354958889,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "user click public profile",
+            "match": {
+              "location": "EditProfileSteps.editProfile()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 170845206,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "user click edit button in my public profile page",
+            "match": {
+              "location": "EditProfileSteps.goToEdit()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 228222386,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "user edit biography profile \"I\u0027m QA Engineer\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "I\u0027m QA Engineer",
+                  "offset": 29
+                }
+              ],
+              "location": "EditProfileSteps.editBiography(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 91524529,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "user choose location \"DKI Jakarta\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "DKI Jakarta",
+                  "offset": 22
+                }
+              ],
+              "location": "EditProfileSteps.editLocation(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 809665064,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "user click save button edit profile",
+            "match": {
+              "location": "EditProfileSteps.clickSaveButtonEditProfile()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Edit Profile Account",
+    "description": "",
+    "id": "edit-profile-account",
+    "keyword": "Feature",
+    "uri": "edit-profile.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@test"
+      }
+    ]
+  }
+]

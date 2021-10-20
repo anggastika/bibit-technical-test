@@ -1,0 +1,18 @@
+{
+  "node": [
+    {
+      "appiumPort": 4455,
+      "wdaPort": 8100,
+      "device": "iPhone 6s",
+      "version": 12.2,
+      "udid": "29DDCBC7-3500-4E0D-BD1B-142FA5F69D75"
+    },
+    {
+      "appiumPort": 4456,
+      "wdaPort": 8101,
+      "device": "iPhone X",
+      "version": 12.2,
+      "udid": "557B600B-E3D1-481C-B8BC-036FE3CE1228"
+    }
+  ]
+}

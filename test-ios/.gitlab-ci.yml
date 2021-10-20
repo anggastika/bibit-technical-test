@@ -1,0 +1,89 @@
+stages:
+  - build
+  - test
+
+variables:
+  IMAGE_VERSION: "1.0"
+
+build-image-checker:
+  stage: build
+  image: $CI_REGISTRY/sre/gudang/docker:1.0.0
+  only:
+    changes:
+      - gitlab/checker/Dockerfile
+      - Gemfile*
+    refs:
+      - master
+      - /^release.+/
+      - /^trigger-build.+/
+  tags:
+    - build-image
+    - preproduction
+  script:
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY_PASSWORD
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - echo $CI_COMMIT_TAG
+    - docker build -t $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/checker:$IMAGE_VERSION -f gitlab/checker/Dockerfile . --no-cache
+    - docker push $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/checker:$IMAGE_VERSION
+
+build-image-danger:
+  stage: build
+  image: $CI_REGISTRY/sre/gudang/docker:1.0.0
+  only:
+    changes:
+      - gitlab/danger/Dockerfile
+      - Gemfile*
+    refs:
+      - master
+      - /^release.+/
+      - /^trigger-build.+/
+  tags:
+    - build-image
+    - preproduction
+  script:
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY_PASSWORD
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - echo $CI_COMMIT_TAG
+    - docker build -t $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/danger:$IMAGE_VERSION -f gitlab/danger/Dockerfile . --no-cache
+    - docker push $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/danger:$IMAGE_VERSION
+
+danger:
+  image:
+    name: $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/danger:$IMAGE_VERSION
+  stage: test
+  except:
+    refs:
+      - master
+  tags:
+    - preproduction-te-small
+  variables:
+    DANGER_GITLAB_API_TOKEN: xmJijVV2kYb59fpyJyZU
+    DANGER_GITLAB_HOST: gitlab.cloud.bukalapak.io
+    DANGER_GITLAB_API_BASE_URL: https://runner.gitlab.cloud.bukalapak.io/api/v4
+  only:
+    - merge_request
+  script:
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@runner.gitlab.cloud.bukalapak.io/".insteadOf "git@git.gitlab.cloud.bukalapak.io:"
+    - bundle install
+    - bundle exec danger --fail-on-errors=true
+
+static_analytic:
+  image:
+    name: $CI_REGISTRY/bukalapak/bukalapak_ios_cucumber/checker:$IMAGE_VERSION
+  stage: test
+  except:
+    refs:
+      - master
+  only:
+    - merge_request
+  tags:
+    - preproduction-te-large
+  script:
+    - ./gradlew clean check -x test
+  artifacts:
+    when: on_failure
+    paths:
+    - build/reports
+    expire_in: 5 days
